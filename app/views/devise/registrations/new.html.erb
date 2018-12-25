@@ -25,6 +25,11 @@
           <%= f.label :パスワード（確認） %><br />
           <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
         </div>
+        
+        <div class= 'form-group'>
+          <%= f.label :グループ名（半角英数）%></br >
+          <%= f.text_field :group_key, class: 'form-control' %>
+        </div>  
 
         <div class='actions'>
           <%= f.submit class: 'btn btn-primary withripple', value: '新規登録' %>

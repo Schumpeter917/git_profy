@@ -16,6 +16,11 @@
         <div>
           <%= f.password_field :password, autocomplete: 'off', placeholder: 'パスワード', class: 'input form-control' %>
         </div><br />
+        
+        <div class='form-gorup'>
+          <%= f.label :グループ名（半角英数）%>
+          <%= f.text_field :group_key, class: 'form-control' %>
+        </div>  
 
         <% if devise_mapping.rememberable? %>
           <div class='checkbox'>
