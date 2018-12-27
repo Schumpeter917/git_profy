@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   
+  has_one_attached :image
   attr_accessor :group_key
   
   devise :database_authenticatable, :registerable,
@@ -29,6 +30,18 @@ class User < ApplicationRecord
     else
       false
     end
+  end
+  
+  def name
+    "#{family_name} #{first_name}"
+  end
+  
+  def name_kana
+    "#{family_name_kana} #{first_name_kana}"
+  end
+  
+  def full_profile?
+    image.present? && family_name.present? && first_name.present? && family_name_kana.present? && first_name_kana.present?
   end
 
   private
