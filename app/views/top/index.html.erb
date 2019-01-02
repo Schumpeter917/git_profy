@@ -5,4 +5,18 @@
     <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple"} %>
   </header>  
 <% else %>
+  <div class="posting_form top_content">
+    <header class="postiing header">
+      <div class="posting_image icon_image" style="background-image: url(<%= rails_blob_path( current_user.image) %>);"></div>
+      <div class="posting_user_info user_info">
+        <%= current_user.name %>
+      </div>  
+    </header>
+    <%= form_for(@question) do |f| %>
+      <%= f.text_field :text, placeholder: "好きな食べ物は？" %>
+      <%= f.submit "質問する" %>
+    <% end %>  
+  </div>  
+  
+  <%= render @feed_contents %>
 <% end %>
